@@ -1,0 +1,32 @@
+name: Build Trinity Android APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0'
+          channel: 'stable'
+
+      - name: Install Dependencies
+        run: |
+          cd backend || true
+          # Add build steps here as mobile structure expands
+
+      - name: Build Info Check
+        run: echo "Trinity CI Pipeline Active on GitHub Actions"
