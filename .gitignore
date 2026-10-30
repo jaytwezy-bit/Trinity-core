@@ -1,0 +1,6 @@
+.ollama/
+*.bin
+*.safetensors
+outputs/
+__pycache__/
+.env
